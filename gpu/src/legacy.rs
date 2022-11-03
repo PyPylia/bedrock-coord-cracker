@@ -16,61 +16,77 @@ fn is_bedrock(seed: i64, x: i32, z: i32, y: i64, d: f32) -> bool {
 }
 
 fn filter(seed: i64, x: i32, z: i32) -> bool {
-    if 
-        is_bedrock(seed, x, z, 4, 0.2) && 
-        is_bedrock(seed, x + 1, z, 4, 0.2) &&
-        is_bedrock(seed, x - 1, z, 4, 0.2) &&
-        is_bedrock(seed, x, z, 3, 0.4) && 
-        is_bedrock(seed, x + 1, z, 3, 0.4) &&
-        is_bedrock(seed, x - 1, z, 3, 0.4) &&
-        is_bedrock(seed, x, z, 2, 0.6) && 
-        is_bedrock(seed, x + 1, z, 2, 0.6) &&
-        is_bedrock(seed, x - 1, z, 2, 0.6) &&
-        !is_bedrock(seed, x, z + 1, 4, 0.2) && 
-        !is_bedrock(seed, x + 1, z + 1, 4, 0.2) &&
-        !is_bedrock(seed, x - 1, z + 1, 4, 0.2) &&
-        !is_bedrock(seed, x, z + 2, 4, 0.2) && 
-        !is_bedrock(seed, x + 1, z + 2, 4, 0.2) &&
-        !is_bedrock(seed, x - 1, z + 2, 4, 0.2) &&
-        !is_bedrock(seed, x, z - 1, 4, 0.2) &&
-        !is_bedrock(seed, x + 1, z - 1, 4, 0.2) &&
-        !is_bedrock(seed, x - 1, z - 1, 4, 0.2) &&
-        !is_bedrock(seed, x, z - 2, 4, 0.2) && 
-        !is_bedrock(seed, x + 1, z - 2, 4, 0.2) &&
-        !is_bedrock(seed, x - 1, z - 2, 4, 0.2) &&
-        is_bedrock(seed, x, z + 3, 4, 0.2) && 
-        is_bedrock(seed, x, z - 3, 4, 0.2) &&
-        !is_bedrock(seed, x + 1, z - 3, 4, 0.2) &&
-        !is_bedrock(seed, x - 1, z - 3, 4, 0.2) &&
-        is_bedrock(seed, x - 1, z - 3, 3, 0.4) &&
-        is_bedrock(seed, x + 1, z + 3, 4, 0.2) &&
-        is_bedrock(seed, x - 1, z + 3, 4, 0.2) &&
-        is_bedrock(seed, x + 1, z - 2, 3, 0.4) &&
-        is_bedrock(seed, x + 1, z - 1, 3, 0.4) &&
-        !is_bedrock(seed, x - 1, z - 2, 3, 0.4) &&
-        !is_bedrock(seed, x - 1, z - 1, 3, 0.4) &&
-        !is_bedrock(seed, x, z - 2, 3, 0.4) &&
-        !is_bedrock(seed, x, z - 1, 3, 0.4) &&
-        !is_bedrock(seed, x + 1, z - 3, 3, 0.4) &&
-        is_bedrock(seed, x, z + 1, 1, 0.8) && 
-        is_bedrock(seed, x + 1, z + 1, 1, 0.8) &&
-        is_bedrock(seed, x - 1, z + 1, 1, 0.8) &&
-        !is_bedrock(seed, x, z + 1, 3, 0.4) && 
-        !is_bedrock(seed, x + 1, z + 1, 3, 0.4) &&
-        !is_bedrock(seed, x - 1, z + 1, 3, 0.4) &&
-        !is_bedrock(seed, x, z + 1, 2, 0.6) && 
-        !is_bedrock(seed, x + 1, z + 1, 2, 0.6) &&
-        !is_bedrock(seed, x - 1, z + 1, 2, 0.6) &&
-        !is_bedrock(seed, x, z + 2, 3, 0.4) && 
-        is_bedrock(seed, x + 1, z + 2, 3, 0.4) &&
-        !is_bedrock(seed, x - 1, z + 2, 3, 0.4) &&
-        is_bedrock(seed, x + 1, z + 2, 2, 0.6) &&
-        is_bedrock(seed, x - 1, z + 2, 2, 0.6)
-    {
-        true
-    } else {
-        false
-    }
+    is_bedrock(seed, x + 13, z + 8, 1, 0.8) &&
+    is_bedrock(seed, x + 14, z + 8, 1, 0.8) &&
+    is_bedrock(seed, x + 15, z + 8, 1, 0.8) &&
+    !is_bedrock(seed, x + 15, z + 13, 4, 0.2) &&
+    !is_bedrock(seed, x + 15, z + 14, 4, 0.2) &&
+    !is_bedrock(seed, x + 15, z + 11, 4, 0.2) &&
+    !is_bedrock(seed, x + 15, z + 8, 4, 0.2) &&
+    !is_bedrock(seed, x + 15, z + 9, 4, 0.2) &&
+    !is_bedrock(seed, x + 15, z + 4, 4, 0.2) &&
+    !is_bedrock(seed, x + 15, z + 5, 4, 0.2) &&
+    !is_bedrock(seed, x + 15, z + 6, 4, 0.2) &&
+    !is_bedrock(seed, x + 14, z + 11, 4, 0.2) &&
+    !is_bedrock(seed, x + 14, z + 12, 4, 0.2) &&
+    !is_bedrock(seed, x + 14, z + 13, 4, 0.2) &&
+    !is_bedrock(seed, x + 14, z + 14, 4, 0.2) &&
+    !is_bedrock(seed, x + 14, z + 8, 4, 0.2) &&
+    !is_bedrock(seed, x + 14, z + 9, 4, 0.2) &&
+    !is_bedrock(seed, x + 14, z + 5, 4, 0.2) &&
+    !is_bedrock(seed, x + 14, z + 6, 4, 0.2) &&
+    !is_bedrock(seed, x + 13, z + 4, 4, 0.2) &&
+    !is_bedrock(seed, x + 13, z + 5, 4, 0.2) &&
+    !is_bedrock(seed, x + 13, z + 6, 4, 0.2) &&
+    !is_bedrock(seed, x + 13, z + 8, 4, 0.2) &&
+    !is_bedrock(seed, x + 13, z + 9, 4, 0.2) &&
+    !is_bedrock(seed, x + 13, z + 11, 4, 0.2) &&
+    !is_bedrock(seed, x + 13, z + 12, 4, 0.2) &&
+    !is_bedrock(seed, x + 13, z + 13, 4, 0.2) &&
+    !is_bedrock(seed, x + 13, z + 15, 4, 0.2) &&
+    is_bedrock(seed, x + 13, z + 7, 2, 0.6) &&
+    !is_bedrock(seed, x + 13, z + 8, 2, 0.6) &&
+    is_bedrock(seed, x + 13, z + 9, 2, 0.6) &&
+    is_bedrock(seed, x + 14, z + 7, 2, 0.6) &&
+    !is_bedrock(seed, x + 14, z + 8, 2, 0.6) &&
+    is_bedrock(seed, x + 15, z + 7, 2, 0.6) &&
+    !is_bedrock(seed, x + 15, z + 8, 2, 0.6) &&
+    is_bedrock(seed, x + 15, z + 9, 2, 0.6) &&
+    is_bedrock(seed, x + 13, z + 4, 3, 0.4) &&
+    !is_bedrock(seed, x + 13, z + 5, 3, 0.4) &&
+    !is_bedrock(seed, x + 13, z + 6, 3, 0.4) &&
+    is_bedrock(seed, x + 13, z + 7, 3, 0.4) &&
+    !is_bedrock(seed, x + 13, z + 8, 3, 0.4) &&
+    !is_bedrock(seed, x + 13, z + 9, 3, 0.4) &&
+    !is_bedrock(seed, x + 14, z + 5, 3, 0.4) &&
+    !is_bedrock(seed, x + 14, z + 6, 3, 0.4) &&
+    is_bedrock(seed, x + 14, z + 7, 3, 0.4) &&
+    !is_bedrock(seed, x + 14, z + 8, 3, 0.4) &&
+    !is_bedrock(seed, x + 14, z + 9, 3, 0.4) &&
+    !is_bedrock(seed, x + 14, z + 11, 3, 0.4) &&
+    !is_bedrock(seed, x + 14, z + 12, 3, 0.4) &&
+    !is_bedrock(seed, x + 14, z + 13, 3, 0.4) &&
+    !is_bedrock(seed, x + 15, z + 4, 3, 0.4) &&
+    is_bedrock(seed, x + 15, z + 5, 3, 0.4) &&
+    is_bedrock(seed, x + 15, z + 6, 3, 0.4) &&
+    is_bedrock(seed, x + 15, z + 7, 3, 0.4) &&
+    !is_bedrock(seed, x + 15, z + 8, 3, 0.4) &&
+    is_bedrock(seed, x + 15, z + 9, 3, 0.4) &&
+    is_bedrock(seed, x + 15, z + 11, 3, 0.4) &&
+    is_bedrock(seed, x + 15, z + 12, 3, 0.4) &&
+    is_bedrock(seed, x + 15, z + 13, 3, 0.4) &&
+    !is_bedrock(seed, x + 15, z + 14, 3, 0.4) &&
+    is_bedrock(seed, x + 13, z + 10, 4, 0.2) &&
+    is_bedrock(seed, x + 13, z + 7, 4, 0.2) &&
+    is_bedrock(seed, x + 13, z + 14, 4, 0.2) &&
+    is_bedrock(seed, x + 14, z + 4, 4, 0.2) &&
+    is_bedrock(seed, x + 14, z + 7, 4, 0.2) &&
+    is_bedrock(seed, x + 14, z + 10, 4, 0.2) &&
+    is_bedrock(seed, x + 14, z + 15, 4, 0.2) &&
+    is_bedrock(seed, x + 15, z + 7, 4, 0.2) &&
+    is_bedrock(seed, x + 15, z + 10, 4, 0.2) &&
+    is_bedrock(seed, x + 15, z + 12, 4, 0.2) &&
+    is_bedrock(seed, x + 15, z + 15, 4, 0.2)
 }
 
 #[kernel]
@@ -78,17 +94,14 @@ pub unsafe fn main_legacy(seed: i64, rand_gens: *mut DefaultRand) {
     let index = thread::index();
     let mut this_gen = &mut *rand_gens.add(index as usize);
 
-    let mut inc: u32 = 0;
-    let mut buf: i64 = 0;
+    let mut inc: u64 = 0;
 
-    let mut x = 0;
-    let mut z = 0;
+    let mut x;
+    let mut z;
 
     loop {
-        buf = this_gen.next_u64() as i64;
-
-        x = (buf &  0xFFFFFFFF) as i32 >> 0x08;
-        z = (buf >> 0x28      ) as i32;
+        x = this_gen.next_u32() as i32 >> 0x0D << 4;
+        z = this_gen.next_u32() as i32 >> 0x0D << 4;
 
         if filter(seed, x, z) {
             println!(
@@ -97,13 +110,8 @@ pub unsafe fn main_legacy(seed: i64, rand_gens: *mut DefaultRand) {
             );
         }
 
+        if x > 4194250 && z > 4194250 { println!("Probably like {:12} chunks checked rn.", inc * 22 * 640); }
+
         inc += 1;
     }
-
-    // DefaultRand::seed_from_u64(thread::index());
-    // let idx = thread::index_1d() as usize;
-    // if idx < a.len() {
-    //     let elem = &mut *c.add(idx);
-    //     *elem = a[idx] + b[idx];
-    // }
 }

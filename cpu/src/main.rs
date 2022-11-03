@@ -28,23 +28,10 @@ fn main() -> anyhow::Result<()> {
     let func = module.get_function("main_legacy")?;
     let (grid_size, block_size) = func.suggested_launch_configuration(0, 0.into())?;
 
-    //let grid_size = (NUMBERS_LEN as u32 + block_size - 1) / block_size;
-
     println!(
         "Using {} blocks and {} threads per block\n",
         grid_size, block_size
     );
-
-    // println!(
-    //     "Expecting {}",
-    //     DefaultRand::initialize_states(
-    //         CUDA_SEED,
-    //         4
-    //     ).iter_mut().fold(
-    //         String::new(),
-    //         |a, b| a + ", " + &b.next_u32().to_string()
-    //     )
-    // );
 
     let rand_gens = DeviceBuffer::from_slice(
         DefaultRand::initialize_states(
