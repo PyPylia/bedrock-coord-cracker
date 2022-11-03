@@ -1,2 +1,5 @@
-/target
+/gpu/target
+/cpu/target
 *.mp4
+/frames
+/ptx
