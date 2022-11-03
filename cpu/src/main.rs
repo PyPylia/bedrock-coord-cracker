@@ -31,7 +31,7 @@ fn main() -> anyhow::Result<()> {
     //let grid_size = (NUMBERS_LEN as u32 + block_size - 1) / block_size;
 
     println!(
-        "Using {} blocks and {} threads per block",
+        "Using {} blocks and {} threads per block\n",
         grid_size, block_size
     );
 

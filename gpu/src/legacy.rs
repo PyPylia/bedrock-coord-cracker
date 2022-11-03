@@ -16,7 +16,61 @@ fn is_bedrock(seed: i64, x: i32, z: i32, y: i64, d: f32) -> bool {
 }
 
 fn filter(seed: i64, x: i32, z: i32) -> bool {
-    todo!()
+    if 
+        is_bedrock(seed, x, z, 4, 0.2) && 
+        is_bedrock(seed, x + 1, z, 4, 0.2) &&
+        is_bedrock(seed, x - 1, z, 4, 0.2) &&
+        is_bedrock(seed, x, z, 3, 0.4) && 
+        is_bedrock(seed, x + 1, z, 3, 0.4) &&
+        is_bedrock(seed, x - 1, z, 3, 0.4) &&
+        is_bedrock(seed, x, z, 2, 0.6) && 
+        is_bedrock(seed, x + 1, z, 2, 0.6) &&
+        is_bedrock(seed, x - 1, z, 2, 0.6) &&
+        !is_bedrock(seed, x, z + 1, 4, 0.2) && 
+        !is_bedrock(seed, x + 1, z + 1, 4, 0.2) &&
+        !is_bedrock(seed, x - 1, z + 1, 4, 0.2) &&
+        !is_bedrock(seed, x, z + 2, 4, 0.2) && 
+        !is_bedrock(seed, x + 1, z + 2, 4, 0.2) &&
+        !is_bedrock(seed, x - 1, z + 2, 4, 0.2) &&
+        !is_bedrock(seed, x, z - 1, 4, 0.2) &&
+        !is_bedrock(seed, x + 1, z - 1, 4, 0.2) &&
+        !is_bedrock(seed, x - 1, z - 1, 4, 0.2) &&
+        !is_bedrock(seed, x, z - 2, 4, 0.2) && 
+        !is_bedrock(seed, x + 1, z - 2, 4, 0.2) &&
+        !is_bedrock(seed, x - 1, z - 2, 4, 0.2) &&
+        is_bedrock(seed, x, z + 3, 4, 0.2) && 
+        is_bedrock(seed, x, z - 3, 4, 0.2) &&
+        !is_bedrock(seed, x + 1, z - 3, 4, 0.2) &&
+        !is_bedrock(seed, x - 1, z - 3, 4, 0.2) &&
+        is_bedrock(seed, x - 1, z - 3, 3, 0.4) &&
+        is_bedrock(seed, x + 1, z + 3, 4, 0.2) &&
+        is_bedrock(seed, x - 1, z + 3, 4, 0.2) &&
+        is_bedrock(seed, x + 1, z - 2, 3, 0.4) &&
+        is_bedrock(seed, x + 1, z - 1, 3, 0.4) &&
+        !is_bedrock(seed, x - 1, z - 2, 3, 0.4) &&
+        !is_bedrock(seed, x - 1, z - 1, 3, 0.4) &&
+        !is_bedrock(seed, x, z - 2, 3, 0.4) &&
+        !is_bedrock(seed, x, z - 1, 3, 0.4) &&
+        !is_bedrock(seed, x + 1, z - 3, 3, 0.4) &&
+        is_bedrock(seed, x, z + 1, 1, 0.8) && 
+        is_bedrock(seed, x + 1, z + 1, 1, 0.8) &&
+        is_bedrock(seed, x - 1, z + 1, 1, 0.8) &&
+        !is_bedrock(seed, x, z + 1, 3, 0.4) && 
+        !is_bedrock(seed, x + 1, z + 1, 3, 0.4) &&
+        !is_bedrock(seed, x - 1, z + 1, 3, 0.4) &&
+        !is_bedrock(seed, x, z + 1, 2, 0.6) && 
+        !is_bedrock(seed, x + 1, z + 1, 2, 0.6) &&
+        !is_bedrock(seed, x - 1, z + 1, 2, 0.6) &&
+        !is_bedrock(seed, x, z + 2, 3, 0.4) && 
+        is_bedrock(seed, x + 1, z + 2, 3, 0.4) &&
+        !is_bedrock(seed, x - 1, z + 2, 3, 0.4) &&
+        is_bedrock(seed, x + 1, z + 2, 2, 0.6) &&
+        is_bedrock(seed, x - 1, z + 2, 2, 0.6)
+    {
+        true
+    } else {
+        false
+    }
 }
 
 #[kernel]
