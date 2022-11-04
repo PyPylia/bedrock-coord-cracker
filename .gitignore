@@ -2,4 +2,4 @@
 /cpu/target
 *.mp4
 /frames
-/ptx
+/ptx/*.ptx

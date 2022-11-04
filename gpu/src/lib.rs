@@ -1,4 +1,5 @@
 //#![allow(improper_ctypes_definitions)]
+#![feature(inline_const)]
 #![cfg_attr(
     target_os = "cuda",
     no_std,
