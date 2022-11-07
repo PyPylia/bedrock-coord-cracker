@@ -9,7 +9,6 @@ fn main() -> anyhow::Result<()> {
 
     let func = module.get_function("main_legacy")?;
     let (grid_size, block_size) = func.suggested_launch_configuration(0, 0.into())?;
-    //let (grid_size, block_size) = (10u32, 10u32);
 
     println!(
         "Using {} blocks and {} threads per block\n",

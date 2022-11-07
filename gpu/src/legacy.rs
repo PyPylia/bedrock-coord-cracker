@@ -4,8 +4,8 @@ use cuda_std::{*, println};
 
 const WORLD_SEED:   i64 =  64149200;
 
-const SEARCH_START: i32 = -234_375;
-const SEARCH_END:   i32 =  234_375;
+const SEARCH_START: i32 = -250_000;
+const SEARCH_END:   i32 =  250_000;
 const SEARCH_SHIFT: u8  =  4;
 
 const GEN_ID: u64 = 2042456806;
@@ -53,32 +53,54 @@ const fn hash_check(seed: u64) -> u64 {
 macro_rules! is_bedrock {
     ($x:expr, $y:expr, $z:expr) => {
         hash_check(
-            ($x * 3129871i32) as u64 ^ $z as u64 * 116129781 ^ $y as u64
+            ($x * 3129871i32) as u64 ^ $z as u64 * 116129781 ^ 0 as u64
         ) < const { (5 - $y) as u64 * (0x333333 << 24) }
     };
 }
 
 fn filter(x: i32, z: i32) -> bool {
-    !is_bedrock!(x,     2, z    ) && // AMOGUS
-     is_bedrock!(x + 1, 2, z    ) && // AMOGUS
-     is_bedrock!(x + 2, 2, z    ) && // AMOGUS
-     is_bedrock!(x + 3, 2, z    ) && // AMOGUS
-     is_bedrock!(x,     2, z + 1) && // AMOGUS
-     is_bedrock!(x + 1, 2, z + 1) && // AMOGUS
-    !is_bedrock!(x + 2, 2, z + 1) && // AMOGUS
-    !is_bedrock!(x + 3, 2, z + 1) && // AMOGUS
-     is_bedrock!(x,     2, z + 2) && // AMOGUS
-     is_bedrock!(x + 1, 2, z + 2) && // AMOGUS
-     is_bedrock!(x + 2, 2, z + 2) && // AMOGUS
-     is_bedrock!(x + 3, 2, z + 2) && // AMOGUS
-    !is_bedrock!(x,     2, z + 3) && // AMOGUS
-     is_bedrock!(x + 1, 2, z + 3) && // AMOGUS
-     is_bedrock!(x + 2, 2, z + 3) && // AMOGUS
-     is_bedrock!(x + 3, 2, z + 3) && // AMOGUS
-    !is_bedrock!(x,     2, z + 4) && // AMOGUS
-     is_bedrock!(x + 1, 2, z + 4) && // AMOGUS
-    !is_bedrock!(x + 2, 2, z + 4) && // AMOGUS
-     is_bedrock!(x + 3, 2, z + 4)    // AMOGUS
+    !is_bedrock!(x + 13, 4, z + 6 ) &&
+    !is_bedrock!(x + 13, 4, z + 8 ) &&
+    !is_bedrock!(x + 13, 4, z + 9 ) &&
+    !is_bedrock!(x + 13, 4, z + 11) &&
+    !is_bedrock!(x + 13, 4, z + 12) &&
+    !is_bedrock!(x + 13, 4, z + 13) &&
+    !is_bedrock!(x + 13, 4, z + 15) &&
+    !is_bedrock!(x + 14, 4, z + 6 ) &&
+    !is_bedrock!(x + 14, 4, z + 8 ) &&
+    !is_bedrock!(x + 14, 4, z + 9 ) &&
+    !is_bedrock!(x + 14, 4, z + 11) &&
+    !is_bedrock!(x + 14, 4, z + 12) &&
+    !is_bedrock!(x + 14, 4, z + 13) &&
+    !is_bedrock!(x + 14, 4, z + 14) &&
+    !is_bedrock!(x + 15, 4, z + 6 ) &&
+    !is_bedrock!(x + 15, 4, z + 8 ) &&
+    !is_bedrock!(x + 15, 4, z + 9 ) &&
+    !is_bedrock!(x + 15, 4, z + 11) &&
+    !is_bedrock!(x + 15, 4, z + 13) &&
+    !is_bedrock!(x + 15, 4, z + 14) &&
+    !is_bedrock!(x + 13, 3, z + 8 ) &&
+    !is_bedrock!(x + 14, 3, z + 8 ) &&
+    !is_bedrock!(x + 14, 3, z + 11) &&
+    !is_bedrock!(x + 14, 3, z + 13) &&
+    !is_bedrock!(x + 15, 3, z + 8 ) &&
+    !is_bedrock!(x + 15, 3, z + 14) &&
+     is_bedrock!(x + 13, 3, z + 7 ) &&
+     is_bedrock!(x + 14, 3, z + 7 ) &&
+     is_bedrock!(x + 15, 3, z + 6 ) &&
+     is_bedrock!(x + 15, 3, z + 7 ) &&
+     is_bedrock!(x + 15, 3, z + 11) &&
+     is_bedrock!(x + 15, 3, z + 13) &&
+     is_bedrock!(x + 13, 4, z + 7 ) &&
+     is_bedrock!(x + 13, 4, z + 10) &&
+     is_bedrock!(x + 13, 4, z + 14) &&
+     is_bedrock!(x + 14, 4, z + 7 ) &&
+     is_bedrock!(x + 14, 4, z + 10) &&
+     is_bedrock!(x + 14, 4, z + 15) &&
+     is_bedrock!(x + 15, 4, z + 7 ) &&
+     is_bedrock!(x + 15, 4, z + 10) &&
+     is_bedrock!(x + 15, 4, z + 12) &&
+     is_bedrock!(x + 15, 4, z + 15)
 }
 
 #[kernel]
@@ -102,7 +124,7 @@ pub unsafe fn main_legacy(thread_count: u32) {
 
         if filter(x, z) {
             println!(
-                "Found candidate position!   Coords: ({:8}, {:8})     [ID: {:5}]",
+                "*!* CANDIDATE *!*   ({:8}, {:8})   [ID: {:5}]",
                 x, z, index
             );
         }
